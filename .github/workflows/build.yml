@@ -47,6 +47,16 @@ jobs:
           tags: |
            ${{ env.IMAGE_NAME }}
 
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.29.0
+        with:
+          image-ref: '${{ env.IMAGE_NAME }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
 #      - name: Generate Image
 #        run: |
 #          docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock \
