@@ -65,12 +65,13 @@ jobs:
           quay.io/kairos/auroraboot:latest --debug build-iso --output /output/ \
           --name kairos-${{ matrix.build-dir }}-${{ github.sha }} \
           docker:${{ env.IMAGE_NAME }}
+          ls -la output
 
-      - name: Build UKI
+      - name: Extract netboot images
         run: |
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
           -v $PWD/build/:/output \
-          quay.io/kairos/auroraboot:latest --debug build-uki --output-dir /output/ \
+          quay.io/kairos/auroraboot:latest --debug netboot kairos-${{ matrix.build-dir }}-${{ github.sha }}.iso /output/ rockylinux \
           --name kairos-${{ matrix.build-dir }}-${{ github.sha }} \
           docker:${{ env.IMAGE_NAME }}
           ls -la output
