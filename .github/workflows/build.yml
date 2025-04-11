@@ -65,7 +65,7 @@ jobs:
           quay.io/kairos/auroraboot:latest --debug build-iso --output /output/ \
           --name kairos-${{ matrix.build-dir }}-${{ github.sha }} \
           docker:${{ env.IMAGE_NAME }}
-          ls -la output
+          ls -la build
 
       - name: Extract netboot images
         run: |
@@ -74,7 +74,7 @@ jobs:
           quay.io/kairos/auroraboot:latest --debug netboot kairos-${{ matrix.build-dir }}-${{ github.sha }}.iso /output/ rockylinux \
           --name kairos-${{ matrix.build-dir }}-${{ github.sha }} \
           docker:${{ env.IMAGE_NAME }}
-          ls -la output
+          ls -la build
 
 #      - name: Extract iPXE images from ISO
 #        run: |
