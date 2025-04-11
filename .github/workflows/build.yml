@@ -3,6 +3,7 @@ name: Build Examples
 on:
   push:
     paths:
+      - '.github/**'
       - 'builds/**'
 
 jobs:
