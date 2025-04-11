@@ -86,7 +86,7 @@ jobs:
           --name kairos-${{ matrix.build-dir }}-${{ github.sha }} \
           docker:${{ env.IMAGE_NAME }}
           ls -la build
-          chmod 644 build/*
+          sudo chmod 644 build/*
 
 #      - name: Extract iPXE images from ISO
 #        run: |
