@@ -66,10 +66,19 @@ jobs:
           --name kairos-${{ matrix.build-dir }}-${{ github.sha }} \
           docker:${{ env.IMAGE_NAME }}
 
-      - name: Extract iPXE images from ISO
+      - name: Build UKI
         run: |
-          mkdir -p build
-          export ISO=$(ls $PWD/*.iso)
-          isoinfo -x /rootfs.squashfs -R -i ${ISO} > build/kairos.squashfs
-          isoinfo -x /boot/kernel -R -i ${ISO} > build/kairos-kernel
-          isoinfo -x /boot/initrd -R -i ${ISO} > build/kairos-initrd
+          mkdir build
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+          -v $PWD/build/:/output \
+          quay.io/kairos/auroraboot:latest --debug build-uki --output /output/ \
+          --name kairos-${{ matrix.build-dir }}-${{ github.sha }} \
+          docker:${{ env.IMAGE_NAME }}
+
+#      - name: Extract iPXE images from ISO
+#        run: |
+#          mkdir -p build
+#          export ISO=$(ls $PWD/*.iso)
+#          isoinfo -x /rootfs.squashfs -R -i ${ISO} > build/kairos.squashfs
+#          isoinfo -x /boot/kernel -R -i ${ISO} > build/kairos-kernel
+#          isoinfo -x /boot/initrd -R -i ${ISO} > build/kairos-initrd
