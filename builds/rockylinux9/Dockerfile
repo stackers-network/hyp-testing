@@ -3,6 +3,14 @@ FROM quay.io/kairos/kairos-init:v0.4.3 AS kairos-init
 FROM rockylinux/rockylinux:9
 ARG VERSION=v0.0.1
 
+RUN dnf -y install 'dnf-command(config-manager)'&& \
+    dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo && \
+    dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin && \
+    systemctl enable docker && \
+    dnf install -y btop
+
+COPY root/ /
+
 COPY --from=kairos-init /kairos-init /kairos-init
 RUN /kairos-init -l debug -s install --fips --version "${VERSION}"
 # Copy the custom dracut config file
