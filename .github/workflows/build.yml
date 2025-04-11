@@ -46,16 +46,16 @@ jobs:
           tags: |
            ${{ env.IMAGE_NAME }}
 
-      - name: Generate Image
-        run: |
-          docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock \
-          -v $PWD/build:/output \
-          quay.io/kairos/auroraboot:v0.5.0 \
-          --debug \ 
-          --set "disable_http_server=true" \
-          --set "disable_netboot=true" \
-          --set "container_image=${{ env.IMAGE_NAME }}" \
-          --set "state_dir=/output" 
+#      - name: Generate Image
+#        run: |
+#          docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock \
+#          -v $PWD/build:/output \
+#          quay.io/kairos/auroraboot:latest \
+#          --debug \ 
+#          --set "disable_http_server=true" \
+#          --set "disable_netboot=true" \
+#          --set "container_image=${{ env.IMAGE_NAME }}" \
+#          --set "state_dir=/output" 
 
       - name: Build iso
         run: |
