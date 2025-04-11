@@ -42,6 +42,7 @@ jobs:
         with:
           file: builds/${{ matrix.build-dir }}/Dockerfile
           context: builds/${{ matrix.build-dir }}
+          push: true
           tags: |
            ${{ env.IMAGE_NAME }}
 
