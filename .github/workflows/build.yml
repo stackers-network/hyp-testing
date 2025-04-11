@@ -30,6 +30,7 @@ jobs:
 
       - name: Install helper packages
         run: |
+          mkdir -p build
           sudo apt-get update
           sudo apt-get install -y genisoimage
       - name: Set Image Tag
@@ -59,7 +60,6 @@ jobs:
 
       - name: Build iso
         run: |
-          mkdir build
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
           -v $PWD/build/:/output \
           quay.io/kairos/auroraboot:latest --debug build-iso --output /output/ \
@@ -68,7 +68,6 @@ jobs:
 
       - name: Build UKI
         run: |
-          mkdir build
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
           -v $PWD/build/:/output \
           quay.io/kairos/auroraboot:latest --debug build-uki --output /output/ \
