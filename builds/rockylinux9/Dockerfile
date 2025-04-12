@@ -9,7 +9,14 @@ RUN dnf -y install 'dnf-command(config-manager)'&& \
     systemctl enable docker
 
 RUN dnf -y install \
-    qemu-guest-agent
+    dhcp-client \
+    epel-release \
+    iproute \
+    openssh-server \
+    parted \
+    qemu-guest-agent \
+    sudo \
+    vim
     
 COPY root/ /
 
