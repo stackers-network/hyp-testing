@@ -8,6 +8,9 @@ RUN dnf -y install 'dnf-command(config-manager)'&& \
     dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin && \
     systemctl enable docker
 
+RUN dnf -y install \
+    qemu-guest-agent
+    
 COPY root/ /
 
 COPY --from=kairos-init /kairos-init /kairos-init
