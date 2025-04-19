@@ -13,8 +13,8 @@ jobs:
     strategy:
       matrix:
         build-dir:
-          - "debian12"
-          - "rockylinux9"
+          - "debian-12"
+          - "rockylinux-9"
           - "ubuntu-24.04"
     steps:
       - name: Checkout code
