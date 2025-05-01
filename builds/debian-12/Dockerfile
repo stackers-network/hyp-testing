@@ -18,9 +18,7 @@ RUN apt-get update && \
 COPY root/ /
 
 COPY --from=kairos-init /kairos-init /kairos-init
-RUN /kairos-init -l debug -s install --fips --version "${VERSION}"
-# Copy the custom dracut config file
-COPY dracut.conf /etc/dracut.conf.d/kairos-fips.conf
+RUN /kairos-init -l debug -s install --version "${VERSION}"
 
 RUN /kairos-init -l debug -s init --version "${VERSION}"
 RUN rm /kairos-init
