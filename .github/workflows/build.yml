@@ -84,7 +84,7 @@ jobs:
         run: |
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
           -v $PWD/build/:/output \
-          quay.io/kairos/auroraboot:latest --debug netboot /output/kairos-${{ matrix.build-dir }}.iso /output ${{ matrix.build-dir }} \
+          quay.io/kairos/auroraboot:latest --debug netboot /output/kairos-${{ matrix.build-dir }}.iso /output kairos-${{ matrix.build-dir }} \
           --name kairos-${{ matrix.build-dir }} \
           docker:${{ env.IMAGE_NAME }}
           ls -la build
@@ -105,4 +105,4 @@ jobs:
           files: |
             build/*.iso
             build/*.iso.sha256
-            build/${{ matrix.build-dir }}*
+            build/kairos-${{ matrix.build-dir }}*
