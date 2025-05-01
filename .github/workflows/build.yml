@@ -1,4 +1,4 @@
-name: Build Examples
+name: Build Base Hypervisors
 
 on:
   push:
@@ -59,17 +59,6 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL'
 
-#      - name: Generate Image
-#        run: |
-#          docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock \
-#          -v $PWD/build:/output \
-#          quay.io/kairos/auroraboot:latest \
-#          --debug \ 
-#          --set "disable_http_server=true" \
-#          --set "disable_netboot=true" \
-#          --set "container_image=${{ env.IMAGE_NAME }}" \
-#          --set "state_dir=/output" 
-
       - name: Build iso
         run: |
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
@@ -105,4 +94,6 @@ jobs:
           files: |
             build/*.iso
             build/*.iso.sha256
-            build/kairos-${{ matrix.build-dir }}*
+            build/*.kernel
+            build/*.initrd
+            build/*.squashfs
