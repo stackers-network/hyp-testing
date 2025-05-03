@@ -8,22 +8,39 @@ RUN dnf -y install 'dnf-command(config-manager)'&& \
     dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin && \
     systemctl enable docker
 
-RUN dnf -y update && \
-    dnf -y install \
+RUN dnf -y install \
+    btop \
+    dbus-daemon \
+    dbus-glib-devel \
     dhcp-client \
     dosfstools \
     epel-release \
+    gcc \
     git \
     grub2 \
     iproute \
     iputils \
+    openssl-devel \
     openssh-server \
     parted \
     procps-ng \
+    python3.12 \
+    python3.12-devel \
+    python3.12-pip \
+    python3.12-setuptools \
     qemu-guest-agent \
+    rsync \
     sudo \
-    vim
-    
+    unzip \
+    wget \
+    which \
+    vim && \
+    dnf clean all && \
+    rm -rf /var/cache/yum
+
+RUN \
+ pip3.12 install --no-cache-dir docker>=7.0.0 dbus-python requests
+
 COPY root/ /
 
 COPY --from=kairos-init /kairos-init /kairos-init
