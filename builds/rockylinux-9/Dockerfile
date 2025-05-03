@@ -10,6 +10,7 @@ RUN dnf -y install 'dnf-command(config-manager)'&& \
 
 RUN dnf -y install \
     dhcp-client \
+    dosfstools \
     epel-release \
     iproute \
     openssh-server \
