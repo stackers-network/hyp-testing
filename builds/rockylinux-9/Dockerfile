@@ -13,6 +13,7 @@ RUN dnf -y install \
     dosfstools \
     epel-release \
     git \
+    grub2 \
     iproute \
     iputils \
     openssh-server \
