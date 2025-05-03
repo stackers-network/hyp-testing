@@ -36,10 +36,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y genisoimage
       - name: Set Image Tag
-        run: |
+       run: |
           IMAGE_NAME_BASE="ghcr.io/stackers-network/hyp-test/${{ matrix.build-dir }}"
-          echo "IMAGE_NAME_BASE=$IMAGE_NAME:${{ github.sha }}" >> $GITHUB_ENV
-          echo "IMAGE_NAME_LATEST=$IMAGE_NAME:latest" >> $GITHUB_ENV
+     #     echo "IMAGE_NAME_BASE=$IMAGE_NAME:${{ github.sha }}" >> $GITHUB_ENV
+     #     echo "IMAGE_NAME_LATEST=$IMAGE_NAME:latest" >> $GITHUB_ENV
 
       - name: Build Dockerfile
         uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6
@@ -48,8 +48,8 @@ jobs:
           context: builds/${{ matrix.build-dir }}
           push: true
           tags: |
-           ${{ env.IMAGE_NAME }}
-           ${{ env.IMAGE_NAME_LATEST }}
+           ${{ env.IMAGE_NAME }}:${{ github.sha }}
+           ${{ env.IMAGE_NAME }}:latest
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.30.0
