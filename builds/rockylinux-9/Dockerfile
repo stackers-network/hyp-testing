@@ -19,7 +19,7 @@ RUN dnf -y update && \
     iputils \
     openssh-server \
     parted \
-    procs \
+    procps-ng \
     qemu-guest-agent \
     sudo \
     vim
