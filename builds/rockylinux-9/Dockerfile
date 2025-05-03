@@ -27,12 +27,10 @@ RUN dnf -y install \
     openssh-server \
     parted \
     procps-ng \
-    python3.12 \
-    python3.12-devel \
-    python3.12-pip \
-    python3.12-setuptools \
-    python3-setuptools \
+    python3 \
+    python3-devel \
     python3-pip \
+    python3-setuptools \
     qemu-guest-agent \
     rsync \
     sudo \
