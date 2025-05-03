@@ -31,6 +31,8 @@ RUN dnf -y install \
     python3.12-devel \
     python3.12-pip \
     python3.12-setuptools \
+    python3-setuptools \
+    python3-pip \
     qemu-guest-agent \
     rsync \
     sudo \
@@ -42,7 +44,7 @@ RUN dnf -y install \
     rm -rf /var/cache/yum
 
 RUN \
- pip3.12 install --no-cache-dir docker>=7.0.0 dbus-python requests
+ pip3 install --no-cache-dir docker>=7.0.0 dbus-python requests
 
 COPY root/ /
 
