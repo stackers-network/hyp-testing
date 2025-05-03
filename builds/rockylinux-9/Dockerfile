@@ -17,6 +17,7 @@ RUN dnf -y install \
     iputils \
     openssh-server \
     parted \
+    pstools \
     qemu-guest-agent \
     sudo \
     vim
