@@ -8,7 +8,8 @@ RUN dnf -y install 'dnf-command(config-manager)'&& \
     dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin && \
     systemctl enable docker
 
-RUN dnf -y install \
+RUN dnf -y update && \
+    dnf -y install \
     dhcp-client \
     dosfstools \
     epel-release \
