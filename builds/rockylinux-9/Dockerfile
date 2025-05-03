@@ -9,6 +9,9 @@ RUN dnf -y install 'dnf-command(config-manager)'&& \
     systemctl enable docker
 
 RUN dnf -y install \
+    epel-release
+
+RUN dnf -y install \
     btop \
     dbus-daemon \
     dbus-glib-devel \
