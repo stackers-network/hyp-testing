@@ -36,7 +36,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y genisoimage
       - name: Set Image Tag
-       run: |
+        run: |
           IMAGE_NAME_BASE="ghcr.io/stackers-network/hyp-test/${{ matrix.build-dir }}"
      #     echo "IMAGE_NAME_BASE=$IMAGE_NAME:${{ github.sha }}" >> $GITHUB_ENV
      #     echo "IMAGE_NAME_LATEST=$IMAGE_NAME:latest" >> $GITHUB_ENV
