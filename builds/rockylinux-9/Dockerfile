@@ -12,7 +12,9 @@ RUN dnf -y install \
     dhcp-client \
     dosfstools \
     epel-release \
+    git \
     iproute \
+    iputils \
     openssh-server \
     parted \
     qemu-guest-agent \
