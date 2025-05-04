@@ -23,6 +23,7 @@ RUN dnf -y install \
     grub2 \
     iproute \
     iputils \
+    libffi-devel \
     openssl-devel \
     openssh-server \
     parted \
@@ -30,6 +31,7 @@ RUN dnf -y install \
     python3 \
     python3-devel \
     python3-pip \
+    python3-libselinux \
     python3-setuptools \
     qemu-guest-agent \
     rsync \
@@ -42,7 +44,7 @@ RUN dnf -y install \
     rm -rf /var/cache/yum
 
 RUN \
- pip3 install --no-cache-dir docker>=7.0.0 dbus-python requests
+ pip3 install --no-cache-dir 'docker>=7.0.0' dbus-python requests
 
 COPY root/ /
 
