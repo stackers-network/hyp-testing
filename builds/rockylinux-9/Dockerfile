@@ -44,7 +44,7 @@ RUN dnf -y install \
     rm -rf /var/cache/yum
 
 RUN \
- pip3 install --no-cache-dir 'docker>=7.0.0' dbus-python requests
+ pip3 install --no-cache-dir docker dbus-python requests
 
 COPY root/ /
 
