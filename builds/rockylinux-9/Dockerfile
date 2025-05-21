@@ -12,6 +12,7 @@ RUN dnf -y install \
     epel-release
 
 RUN dnf -y install \
+    bind-utils \
     btop \
     dbus-daemon \
     dbus-glib-devel \
@@ -24,9 +25,11 @@ RUN dnf -y install \
     iproute \
     iputils \
     libffi-devel \
+    netcat \
     openssl-devel \
     openssh-server \
     parted \
+    podman \
     procps-ng \
     python3 \
     python3-devel \
@@ -36,6 +39,7 @@ RUN dnf -y install \
     qemu-guest-agent \
     rsync \
     sudo \
+    tcpdump \
     unzip \
     wget \
     which \
