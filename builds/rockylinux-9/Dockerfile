@@ -29,6 +29,7 @@ RUN dnf -y install \
     netcat \
     openssl-devel \
     openssh-server \
+    open-vm-tools \
     parted \
     podman \
     procps-ng \
