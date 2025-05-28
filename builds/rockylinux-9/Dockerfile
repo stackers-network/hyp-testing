@@ -25,6 +25,7 @@ RUN dnf -y install \
     iproute \
     iputils \
     libffi-devel \
+    lsof \
     NetworkManager \
     netcat \
     openssl-devel \
