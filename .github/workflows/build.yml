@@ -71,6 +71,16 @@ jobs:
           ls -la build
           ls -la build/netboot
 
+      - name: Build cloud image
+        run: |
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+             -v "$PWD"/build:/tmp/auroraboot \
+             --ti kairos.docker.scarf.sh/kairos/auroraboot:v0.8.1 \
+             --set container_image=${{ env.IMAGE_SHA }} \
+             --set "disable_http_server=true" \
+             --set "disable_netboot=true" \
+             --set "state_dir=/tmp/auroraboot"
+             
       - name: Extract netboot images
         run: |
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
