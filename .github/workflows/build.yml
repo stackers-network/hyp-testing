@@ -75,7 +75,7 @@ jobs:
         run: |
           docker run --privileged --rm -v /var/run/docker.sock:/var/run/docker.sock \
              -v "$PWD"/build:/aurora \
-             -ti kairos.docker.scarf.sh/kairos/auroraboot:latest \
+             quay.io/kairos/auroraboot:latest \
              --set container_image=${{ env.IMAGE_SHA }} \
              --set "disable_http_server=true" \
              --set "disable_netboot=true" \
