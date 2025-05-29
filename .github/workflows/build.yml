@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p build
           sudo apt-get update
-          sudo apt-get install -y genisoimage qemu-img
+          sudo apt-get install -y genisoimage qemu-utils
       - name: Set Image Tag
         run: |
           IMAGE_BASE="ghcr.io/stackers-network/hyp-test/${{ matrix.build-dir }}"
