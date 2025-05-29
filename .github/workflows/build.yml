@@ -77,7 +77,6 @@ jobs:
              -v "$PWD"/build:/aurora \
              quay.io/kairos/auroraboot:latest \
              --set container_image=${{ env.IMAGE_SHA }} \
-             --override-name kairos-${{ matrix.build-dir }}
              --set "disable_http_server=true" \
              --set "disable_netboot=true" \
              --set "disk.efi=true" \
