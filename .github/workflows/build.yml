@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p build
           sudo apt-get update
-          sudo apt-get install -y genisoimage
+          sudo apt-get install -y genisoimage qemu-img
       - name: Set Image Tag
         run: |
           IMAGE_BASE="ghcr.io/stackers-network/hyp-test/${{ matrix.build-dir }}"
@@ -77,10 +77,12 @@ jobs:
              -v "$PWD"/build:/aurora \
              quay.io/kairos/auroraboot:latest \
              --set container_image=${{ env.IMAGE_SHA }} \
+             --override-name kairos-${{ matrix.build-dir }}
              --set "disable_http_server=true" \
              --set "disable_netboot=true" \
              --set "disk.efi=true" \
              --set "state_dir=/aurora"
+          qemu-img convert -f raw -O qcow2 kairos-${{ matrix.build-dir }}.img kairos-${{ matrix.build-dir }}.qcow2
              
       - name: Extract netboot images
         run: |
