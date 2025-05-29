@@ -82,7 +82,8 @@ jobs:
              --set "disable_netboot=true" \
              --set "disk.efi=true" \
              --set "state_dir=/aurora"
-          qemu-img convert -f raw -O qcow2 kairos-${{ matrix.build-dir }}.img kairos-${{ matrix.build-dir }}.qcow2
+          CLOUD_IMG=`ls *.raw`
+          qemu-img convert -f raw -O qcow2 $CLOUD_IMG kairos-${{ matrix.build-dir }}.qcow2
              
       - name: Extract netboot images
         run: |
