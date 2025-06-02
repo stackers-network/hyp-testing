@@ -31,6 +31,7 @@ RUN dnf -y install \
     lsof \
     NetworkManager \
     netcat \
+    net-tools \
     openssl-devel \
     openssh-server \
     open-vm-tools \
