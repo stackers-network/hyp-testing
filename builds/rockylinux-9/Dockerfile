@@ -15,12 +15,15 @@ RUN dnf -y install \
     bind-utils \
     btop \
     dbus-daemon \
+    dbus-devel \
     dbus-glib-devel \
+    dbus-x11 \
     dhcp-client \
     dosfstools \
     epel-release \
     gcc \
     git \
+    glib2-devel \
     grub2 \
     iproute \
     iputils \
