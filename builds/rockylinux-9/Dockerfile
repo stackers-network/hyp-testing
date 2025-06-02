@@ -20,6 +20,7 @@ RUN dnf -y install \
     dbus-x11 \
     dhcp-client \
     dosfstools \
+    efibootmgr \
     epel-release \
     gcc \
     git \
