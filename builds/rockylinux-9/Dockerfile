@@ -56,8 +56,11 @@ RUN dnf -y install \
     rm -rf /var/cache/yum
 
 RUN \
- pip3 install --no-cache-dir docker dbus-python requests
+ pip3 install --no-cache-dir dbus-python requests
 
+RUN \
+ pip3 install --no-cache-dir docker
+ 
 COPY root/ /
 
 COPY --from=kairos-init /kairos-init /kairos-init
