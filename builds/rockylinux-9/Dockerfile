@@ -1,6 +1,6 @@
 FROM quay.io/kairos/kairos-init:v0.4.9 AS kairos-init
 
-FROM rockylinux/rockylinux:9
+FROM rockylinux/rockylinux:10
 ARG VERSION=v0.0.1
 
 RUN dnf -y install 'dnf-command(config-manager)'&& \
