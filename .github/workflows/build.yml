@@ -15,6 +15,7 @@ jobs:
         build-dir:
           - "debian-12"
           - "rockylinux-9"
+          - "rockylinux-10"
           - "ubuntu-24.04"
     steps:
       - name: Checkout code
