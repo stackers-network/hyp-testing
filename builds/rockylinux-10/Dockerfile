@@ -18,7 +18,6 @@ RUN dnf -y install \
     dbus-devel \
     dbus-glib-devel \
     dbus-x11 \
-    dhcp-client \
     dosfstools \
     epel-release \
     gcc \
