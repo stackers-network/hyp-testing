@@ -1,4 +1,4 @@
-FROM quay.io/kairos/kairos-init:v0.5.1 AS kairos-init
+FROM quay.io/kairos/kairos-init:v0.5.7 AS kairos-init
 
 FROM debian:12
 ARG VERSION=v0.0.1
