@@ -70,7 +70,6 @@ jobs:
           --override-name kairos-${{ matrix.build-dir }} \
           docker:${{ env.IMAGE_SHA }}
           ls -la build
-          ls -la build/netboot
 
       - name: Build cloud image
         run: |
