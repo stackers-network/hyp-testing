@@ -30,6 +30,7 @@ RUN dnf -y install \
     iputils \
     libffi-devel \
     lsof \
+    NetworkManager \
     netcat \
     net-tools \
     openssl-devel \
@@ -46,7 +47,6 @@ RUN dnf -y install \
     qemu-guest-agent \
     rsync \
     sudo \
-    systemd-networkd \
     tcpdump \
     unzip \
     wget \
