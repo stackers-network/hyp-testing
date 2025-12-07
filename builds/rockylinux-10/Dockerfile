@@ -1,4 +1,4 @@
-FROM quay.io/kairos/kairos-init:v0.6.2 AS kairos-init
+FROM quay.io/kairos/kairos-init:v0.7.0 AS kairos-init
 
 FROM rockylinux/rockylinux:10
 ARG VERSION=v0.0.1
