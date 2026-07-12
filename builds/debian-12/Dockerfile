@@ -1,6 +1,6 @@
 FROM quay.io/kairos/kairos-init:v0.7.0 AS kairos-init
 
-FROM debian:12
+FROM debian:13
 ARG VERSION=v0.0.1
 
 RUN apt-get update && \
